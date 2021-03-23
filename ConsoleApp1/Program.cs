@@ -19,7 +19,8 @@ namespace ConsoleApp1
             Student s1 = new Student()
             {
                 firstName = "jim",
-                LastName = "Halpert"
+                LastName = "Halpert",
+                Schedule = new List<Course>()
             };
 
             Student s2 = new Student()
@@ -34,26 +35,61 @@ namespace ConsoleApp1
                 LastName = "Kapur"
             };
 
-            Course testCourse = new Course();
-            testCourse.Title = "CPW 212 - Adv .NET";
-            testCourse.Description = "More .Net than " +
-                "what you already learned";
-            testCourse.Credits = 5;
-            testCourse.CourseInstructor = currInst;
-            testCourse.Roster = new List<Student>();
+            Course c1 = new Course()
+            {
+                Title = "CPW 212 - Adv .NET",
+                Description = "More .Net than " +
+                "what you already learned",
+                Credits = 5,
+                CourseInstructor = currInst,
+                Roster = new List<Student>()
+            };
 
-            testCourse.Roster.Add(s1);
-            testCourse.Roster.Add(s2);
-            testCourse.Roster.Add(s3);
+            Course c2 = new Course()
+            {
+                Title = "CPW 212 - Adv .NET",
+                Description = "More .Net than " +
+                "what you already learned",
+                Credits = 5,
+                CourseInstructor = currInst,
+                Roster = new List<Student>()
+            };
 
-            Console.WriteLine(testCourse.Title);
+            Course c3 = new Course()
+            {
+                Title = "CPW 212 - Adv .NET",
+                Description = "More .Net than " +
+                "what you already learned",
+                Credits = 5,
+                CourseInstructor = currInst,
+                Roster = new List<Student>()
+            };
+
+            //student one schdule
+            s1.Schedule.Add(c1);
+            s1.Schedule.Add(c2);
+            s1.Schedule.Add(c3);
+
+            // course one roster
+            c1.Roster.Add(s1);
+            c1.Roster.Add(s2);
+            c1.Roster.Add(s3);
+
+            Console.WriteLine(c1.Title);
             Console.WriteLine("Is Taught by "
-                + testCourse.CourseInstructor.FullName);
+                + c1.CourseInstructor.FullName);
 
             Console.WriteLine("Currently Enrolled Students: ");
-            foreach (Student s in testCourse.Roster)
+            foreach (Student s in c1.Roster)
             {
                 Console.WriteLine($"{s.firstName} {s.LastName}");
+                Console.WriteLine();
+            }
+            Console.WriteLine($"Current Schedule of {s1.firstName}:");
+            foreach (Course c in s1.Schedule)
+            {
+                Console.WriteLine($"{c.Title}");
+                Console.WriteLine();
             }
 
             Console.ReadKey();
