@@ -24,7 +24,7 @@ namespace ConsoleApp1
         /// The number of college Credits awarded
         /// for passing the course
         /// </summary>
-        public string Credits { get; set; }
+        public int Credits { get; set; }
 
         /// <summary>
         /// The instructor that teaches the course
